@@ -16,3 +16,7 @@ pytest-cache-files-*/
 .ruff_cache/
 .coverage
 htmlcov/
+week1/reports
+week1-batch-run
+week1/demo
+week1/study
