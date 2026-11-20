@@ -15,9 +15,9 @@ If the category is ambiguous, choose the best-supported category and ask for the
 ## Priority rules
 
 Choose priority separately from category, using the stated impact and urgency:
-- P1: critical current harm or credible imminent harm of comparable severity. Examples of impact include widespread blockage of essential work, severe data loss, or serious data exposure.
-- P2: meaningful but limited functional impact, a significant upcoming risk, or a time-sensitive requirement without P1-level impact.
-- P3: low-impact cosmetic problems, routine information requests, or optional improvements without urgent impact.
+- P1: Serious harm is currently occurring. Examples include: widespread disruption to essential operations, significant data loss, or a major data breach.
+- P2: Significant functional impact within a limited scope, a high potential risk for the future, or requirements that must be addressed within a specific timeframe—but which do not reach the severity level of P1.
+- P3: Minor cosmetic issues, routine requests for information, or optional enhancements that are not time-sensitive.
 
 Use the most serious stated impact. A Bug is not automatically P1, and a Feature is not automatically P3.
 Do not invent an outage or urgent deadline. If priority is genuinely unclear, use provisional P2 and include an action asking about affected users, blocked work, or available workarounds.

@@ -1,0 +1,32 @@
+Why these cases are labelled P1
+
+Assessment policy: credible threats to essential business operations, major financial loss, irreplaceable records, privacy, or physical safety need immediate attention. A planned event can be P1 before harm occurs. An ordinary deadline or a generic possible problem is not enough.
+
+The cases are deliberately short. Each includes an existing serious failure, a concrete approaching event, or the loss of an essential protection. They avoid the original certificate and OAuth examples. They are not guaranteed to defeat the current V3; that is what the comparison measures.
+
+P1-01: The only production recovery copy is about to be permanently removed.
+P1-02: An approaching closure threatens customer payouts and the replacement connection is not ready.
+P1-03: The sole production database faces resource exhaustion before billing.
+P1-04: An unverified release will overwrite the original financial records.
+P1-05: A scheduled rebuild will discard recent account transactions.
+P1-06: An existing payout defect queues duplicate money transfers to every supplier.
+P1-07: One maintenance action is about to erase both production and recovery storage.
+P1-08: Retirement threatens the last key needed to read customer data.
+P1-09: A required approval expires before live settlement, with no alternate route.
+P1-10: Closure of the carrier account threatens the only dispatch integration before shipments.
+P1-11: A near-final payroll batch excludes an entire employee group shortly before the bank cutoff.
+P1-12: A currency-unit defect threatens refund overpayments by a factor of 100.
+P1-13: An approaching license expiry threatens order routing, with no manual dispatch alternative.
+P1-14: A scheduled cleanup will permanently delete unfinished customer orders.
+P1-15: Customer money is actively being credited to another merchant.
+P1-16: A scheduled cleanup removes the only production recovery access.
+P1-17: A planned recovery drill is configured to erase the live ledger.
+P1-18: An approaching cutover removes the only customer order-intake route.
+P1-19: A live trading control no longer enforces the mandatory position limit, exposing the business to unchecked positions.
+P1-20: An approaching factory restart will take place without automatic emergency shutdown.
+
+These are synthetic cases and the P1 labels reflect this assessment policy, not a universal business priority standard. No particular monetary value, outage duration, or legal penalty is assumed.
+
+Category labels distinguish already incorrect behavior (Bug) from a future harmful event (Risk). Cases involving planned harmful changes are labelled Risk because the described event has not happened yet.
+
+This set tests P1 detection only. It has no P2/P3 controls and cannot measure false P1 alarms or overall priority balance.
