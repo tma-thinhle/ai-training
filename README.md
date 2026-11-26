@@ -2,5 +2,5 @@
 
 My learning repository for an eight-week AI engineering training program.
 
-This first commit contains only this README to test the GitHub setup.
-Weekly exercises and learning evidence will be added gradually.
+- [Week 1: issue classification](week1/README.md)
+- [Week 2: meeting-notes API, run instructions, and tests](week2/README.md)

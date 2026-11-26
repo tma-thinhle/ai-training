@@ -1,0 +1,6 @@
+case_id,item,golden,prediction,result,reason
+TC01,Summary,"The team prioritized the login bug and assigned remediation, review, and regression testing.",The team reviewed the sprint backlog and agreed to prioritize the login bug.,Needs review,"Important detail missing. The predicted summary is supported by the meeting text but omits the assigned remediation, review, and regression testing."
+TC01,Decision,Prioritize the login bug.,Prioritize the login bug.,Correct,Both state that the team prioritized the login bug.
+TC01,Action,Fix the login authentication issue | owner: Phu | due: 2026-11-25,Fix the login authentication issue. | owner: Phu | due: 2026-11-25,Correct,Both assign Phu to fix the login authentication issue by 2026-11-25.
+TC01,Action,Review the pull request | owner: Hung | due: 2026-11-26,Review the pull request. | owner: Hung | due: 2026-11-26,Correct,Both assign Hung to review the pull request by 2026-11-26.
+TC01,Action,Prepare regression test cases | owner: Minh | due: 2026-11-27,Prepare regression test cases. | owner: Minh | due: 2026-11-27,Correct,Both assign Minh to prepare regression test cases by 2026-11-27.
