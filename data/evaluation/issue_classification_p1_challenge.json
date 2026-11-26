@@ -1,0 +1,122 @@
+[
+  {
+    "issue_id": "P1-01",
+    "text": "Only production recovery copy due for permanent deletion tonight",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-02",
+    "text": "Customer payout route closes tomorrow; replacement bank connection not ready",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-03",
+    "text": "Sole production database runs out of disk before overnight billing",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-04",
+    "text": "Unverified migration overwrites original customer balances at tonight's release",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-05",
+    "text": "Tonight's account rebuild discards transactions newer than last month's snapshot",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-06",
+    "text": "Tomorrow's payout queue contains duplicate bank transfers for every supplier",
+    "category": "Bug",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-07",
+    "text": "Production and recovery volumes both included in tomorrow's storage wipe",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-08",
+    "text": "Last copy of the customer-data decryption key on server retiring tonight",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-09",
+    "text": "Required payment-network approval lapses before tomorrow's live settlement; no alternate route",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-10",
+    "text": "Only dispatch integration loses its carrier account before morning shipments",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-11",
+    "text": "Final payroll batch omits every hourly employee; bank cutoff in one hour",
+    "category": "Bug",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-12",
+    "text": "Production refund queue sends dollar payments using amounts stored in cents",
+    "category": "Bug",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-13",
+    "text": "Order-routing license expires before morning dispatch; no manual dispatch available",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-14",
+    "text": "Untested cleanup will permanently purge open customer orders tonight",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-15",
+    "text": "Invoice payment links credit another merchant; customer payments still being accepted",
+    "category": "Bug",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-16",
+    "text": "Only production recovery access removed by tonight's account cleanup",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-17",
+    "text": "Tomorrow's recovery drill targets the live ledger for erasure instead of the test copy",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-18",
+    "text": "Tonight's supplier cutover removes the only route for accepting customer orders",
+    "category": "Risk",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-19",
+    "text": "Production trading gateway currently skips the mandatory position limit check",
+    "category": "Bug",
+    "priority": "P1"
+  },
+  {
+    "issue_id": "P1-20",
+    "text": "Factory restart tomorrow with automatic emergency shutdown disabled in the controller",
+    "category": "Risk",
+    "priority": "P1"
+  }
+]

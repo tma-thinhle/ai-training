@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meeting Notes</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-page="run">
+  <main class="shell">
+    <header class="topbar">
+      <h1><span class="mark">M</span> Meeting Notes</h1>
+      <div class="toolbar"><span id="connection" class="badge">Connecting</span><button id="reconnect">Reconnect</button><a id="docs" target="_blank" rel="noopener">Docs ↗</a></div>
+    </header>
+    <nav class="tabs" aria-label="Pages">
+      <button id="run-tab" class="active" aria-selected="true">Run</button>
+      <button id="reports-tab" aria-selected="false">Reports</button>
+    </nav>
+    <p id="message" class="message" role="status" hidden></p>
+    <div class="workspace">
+      <div class="content">
+        <section id="run-page">
+          <form id="meeting-form" class="card">
+            <div class="card-heading"><h2>Input</h2><span id="case-count" class="badge"></span></div>
+            <div class="selectors">
+              <label>Source<select id="dataset" disabled required></select></label>
+              <label id="case-label">Case<select id="case" disabled></select></label>
+              <label id="request-field-label" hidden>Request field<input id="request-field" value="meeting_text" required disabled></label>
+            </div>
+            <label for="meeting-text">Meeting notes <span id="preview-label"></span></label>
+            <textarea id="meeting-text" required readonly spellcheck="false"></textarea>
+            <div class="card-footer"><button id="run" type="submit" class="primary" disabled>Run · paid</button></div>
+          </form>
+          <section id="run-results" class="card" hidden>
+            <div class="card-heading"><h2>Output</h2><span id="progress" class="badge" aria-live="polite"></span></div>
+            <p id="run-folder" class="run-id"></p>
+            <div id="case-results" class="case-results"></div>
+            <div id="output"></div>
+            <div class="card-footer"><button id="evaluate-current" class="primary" hidden>Evaluate · paid</button></div>
+          </section>
+        </section>
+        <section id="reports-page" hidden>
+          <section class="card">
+            <div class="card-heading"><h2>Reports</h2><button id="refresh">Refresh</button></div>
+            <label>Run<select id="saved-run"><option value="">Select a run</option></select></label>
+            <div id="report-content" hidden>
+              <div class="card-heading report-heading"><span id="report-status" class="badge"></span><button id="evaluate-report" class="primary">Evaluate · paid</button></div>
+              <div id="summary-cards" class="summary-cards"></div>
+              <p id="summary-detail" class="report-detail"></p>
+              <div id="downloads" class="downloads"></div>
+              <details><summary>Saved configuration</summary><pre id="saved-config"></pre></details>
+              <div id="comparison-section" hidden>
+                <div class="comparison-tools"><h2>Golden / prediction</h2><select id="report-case" aria-label="Filter meeting"></select><label class="checkbox"><input id="issues-only" type="checkbox">Differences only</label></div>
+                <div class="table-wrap"><table><thead><tr><th>Case</th><th>Item</th><th>Golden</th><th>Prediction</th><th>Result</th><th>Reason</th></tr></thead><tbody id="comparisons"></tbody></table></div>
+              </div>
+              <div id="saved-predictions"></div>
+            </div>
+          </section>
+        </section>
+      </div>
+      <aside class="sidebar">
+        <section class="card configuration">
+          <h2>Configuration</h2><dl id="configuration"></dl>
+          <details><summary>Developer prompt</summary><pre id="prompt"></pre></details>
+        </section>
+        <section class="card criteria">
+          <h2>Criteria</h2>
+          <dl>
+            <div><dt>API / OpenAPI</dt><dd id="criterion-api">—</dd></div>
+            <div><dt>Schema · successful outputs</dt><dd id="criterion-schema">—</dd></div>
+            <div><dt>20-case F1 ≥85%</dt><dd id="criterion-f1">—</dd></div>
+            <div><dt>Secrets · Git / logs</dt><dd>Not checked</dd></div>
+          </dl>
+          <h3>Errors · observed this session</h3>
+          <div id="error-observations" class="observations"></div>
+        </section>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

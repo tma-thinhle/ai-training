@@ -1,0 +1,6 @@
+case_id,item,golden,prediction,result,reason
+TC01,Summary,"The team prioritized the login bug and assigned remediation, review, and regression testing.",,Extraction failed,No successful extraction; expected items counted as missed.
+TC01,Decision,Prioritize the login bug.,,Missed,No successful extraction; expected items counted as missed.
+TC01,Action,Fix the login authentication issue | owner: Phu | due: 2026-11-25,,Missed,No successful extraction; expected items counted as missed.
+TC01,Action,Review the pull request | owner: Hung | due: 2026-11-26,,Missed,No successful extraction; expected items counted as missed.
+TC01,Action,Prepare regression test cases | owner: Minh | due: 2026-11-27,,Missed,No successful extraction; expected items counted as missed.

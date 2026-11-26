@@ -1,0 +1,378 @@
+[
+  {
+    "id": "LC01",
+    "title": "Checkout Release Readiness with Clear Assignments",
+    "group": "Long - Clear",
+    "reference_status": "ai_authored_draft_pending_human_review",
+    "input": "Meeting Date: 2026-11-23\nAttendees: Nira, Omar, Bea, Chen, Diego\nTopic: Checkout 3.2 release readiness\n\nThe group reviewed the checkout release after a week of staging traffic. Chen reported that the synthetic load test had completed and that the staging machines had enough capacity for the planned release. Two intermittent duplicate-order reports remained open. Nira explained that the reports involved repeated submissions with the same payment reference, rather than a second charge being requested by a customer. The group treated that explanation as the current investigation finding; nobody claimed the production issue had already been fixed.\n\nThe team agreed to release checkout version 3.2 on December 3, 2026. The team also agreed to keep the existing checkout layout in this release. Diego had brought screenshots of a redesigned confirmation page, but everyone accepted that those screenshots were background material for a later discussion, not an implementation assignment.\n\nNira will fix the duplicate-order idempotency defect by November 25. Omar will review that patch by November 26. Bea will add automated repeated-submission tests by November 27. These are three separate deliverables: implementing the fix does not replace the review or the tests. Chen will prepare the checkout 3.2 staging configuration by November 26. Diego will update the customer-support FAQ with the agreed duplicate-order guidance by November 30.\n\nDuring the operational discussion, Chen explained that the first production hour would give the team a chance to compare error rates against the existing version. The team agreed to limit the initial production rollout to five percent of checkout traffic for that first hour. Nobody assigned a new dashboard-building task because the required dashboard already exists. The percentages shown on the screen were synthetic examples, not measured improvements.\n\nNira will document the idempotency behavior for backend developers by November 27. Bea will run the complete browser regression suite by December 1. Omar will review the rollback checklist by November 30. Chen will deploy checkout 3.2 to production on December 3. Diego will send the customer-facing release notice on December 3. Each person explicitly accepted the named responsibility and date.\n\nBefore closing, the chair distinguished completed preparation from open work: last week's infrastructure load test and the existing dashboard require no new action. The redesign remains outside the release. No dates or owners were changed during the meeting. The rollout decision does not create an additional unnamed deployment task; Chen's deployment assignment is the one to record.",
+    "expected": {
+      "summary": "The team scheduled checkout 3.2 for December 3, retained the existing layout, and approved a five-percent initial rollout. It assigned the duplicate-order fix, reviews, testing, configuration, documentation, deployment, and release communications.",
+      "decisions": [
+        "Release checkout version 3.2 on 2026-12-03.",
+        "Keep the existing checkout layout for version 3.2.",
+        "Limit the initial production rollout to five percent of checkout traffic for the first hour."
+      ],
+      "actions": [
+        {
+          "owner": "Nira",
+          "action": "Fix the duplicate-order idempotency defect",
+          "due_date": "2026-11-25"
+        },
+        {
+          "owner": "Omar",
+          "action": "Review the duplicate-order idempotency patch",
+          "due_date": "2026-11-26"
+        },
+        {
+          "owner": "Bea",
+          "action": "Add automated repeated-submission tests",
+          "due_date": "2026-11-27"
+        },
+        {
+          "owner": "Chen",
+          "action": "Prepare the checkout 3.2 staging configuration",
+          "due_date": "2026-11-26"
+        },
+        {
+          "owner": "Diego",
+          "action": "Update the customer-support FAQ with duplicate-order guidance",
+          "due_date": "2026-11-30"
+        },
+        {
+          "owner": "Nira",
+          "action": "Document the idempotency behavior for backend developers",
+          "due_date": "2026-11-27"
+        },
+        {
+          "owner": "Bea",
+          "action": "Run the complete browser regression suite",
+          "due_date": "2026-12-01"
+        },
+        {
+          "owner": "Omar",
+          "action": "Review the rollback checklist",
+          "due_date": "2026-11-30"
+        },
+        {
+          "owner": "Chen",
+          "action": "Deploy checkout 3.2 to production",
+          "due_date": "2026-12-03"
+        },
+        {
+          "owner": "Diego",
+          "action": "Send the customer-facing release notice",
+          "due_date": "2026-12-03"
+        }
+      ]
+    },
+    "evaluation_notes": "AI-authored draft reference, not independently human-reviewed. Ten open actions with explicit owners and dates. Resolve omitted years from the stated meeting date. Do not turn the redesign, already completed load test, existing dashboard, or rollout decision into additional action entries."
+  },
+  {
+    "id": "LC02",
+    "title": "Analytics Export Pilot with Clear Parallel Work",
+    "group": "Long - Clear",
+    "reference_status": "ai_authored_draft_pending_human_review",
+    "input": "Meeting Date: 2026-11-30\nAttendees: Farah, Liam, Mina, Ravi, Sofia\nTopic: Analytics export pilot\n\nThe team reviewed a synthetic export of a large order history. The example contained enough rows to exercise paging, but it included no customer data. The current synchronous endpoint still works for small exports. The proposed pilot is intended to test interruption recovery and larger exports; nobody claimed the pilot would already meet a particular performance target. Last week's spreadsheet comparison was complete and required no further work.\n\nThe team agreed that the pilot output will be UTF-8 CSV, with timestamps expressed in UTC. Sofia explained that the current guide mixes local-time examples with UTC examples, which could confuse support staff. The team agreed to keep the existing synchronous export endpoint available during the pilot. The team also approved enabling the new exporter for three synthetic pilot accounts on December 7, 2026.\n\nFarah will implement cursor-based pagination for the new exporter by December 2. Liam will validate compatibility between the new CSV schema and the existing downstream importer by December 3. Mina will generate the large synthetic export fixtures by December 1. Ravi will configure the dedicated staging export bucket by December 2. Sofia will prepare the pilot user guide by December 4. Each assignment was accepted without conditions.\n\nRavi described the recovery scenario in some detail: an interrupted export should resume without repeating rows or silently skipping them. Farah will add resume-token validation by December 3. Mina will add automated tests for UTC day-boundary records by December 4. Liam will review account-access checks on the export download path by December 4. Ravi will run an interrupted-export recovery drill in staging on December 5. The drill uses Mina's fixtures, but Ravi's deadline remains December 5; the dependency does not create a different date.\n\nThe discussion then returned to launch coordination. Sofia will publish the approved pilot user guide on December 7. Ravi will enable the exporter for the three agreed synthetic accounts on December 7. Mina will verify the first export from each of those three accounts on December 7. These are separate tasks from preparing the guide, configuring staging storage, and generating the fixtures.\n\nSofia mentioned that a graphical export-history page might be useful eventually. Nobody approved that feature or assigned design work. The chair confirmed the four format, compatibility, and pilot decisions already recorded. All twelve named tasks remain open with their stated owners and dates. The existing importer is not being replaced, and the old synchronous endpoint is not being removed. No further commitments were made.",
+    "expected": {
+      "summary": "The team approved a December 7 pilot for three synthetic accounts using UTF-8 CSV and UTC timestamps while retaining the synchronous endpoint. It assigned pagination, compatibility and access review, fixtures, storage, recovery testing, documentation, pilot activation, and export verification.",
+      "decisions": [
+        "Use UTF-8 CSV for pilot export output.",
+        "Express pilot export timestamps in UTC.",
+        "Keep the existing synchronous export endpoint available during the pilot.",
+        "Enable the new exporter for three synthetic pilot accounts on 2026-12-07."
+      ],
+      "actions": [
+        {
+          "owner": "Farah",
+          "action": "Implement cursor-based pagination for the new exporter",
+          "due_date": "2026-12-02"
+        },
+        {
+          "owner": "Liam",
+          "action": "Validate CSV schema compatibility with the existing downstream importer",
+          "due_date": "2026-12-03"
+        },
+        {
+          "owner": "Mina",
+          "action": "Generate the large synthetic export fixtures",
+          "due_date": "2026-12-01"
+        },
+        {
+          "owner": "Ravi",
+          "action": "Configure the dedicated staging export bucket",
+          "due_date": "2026-12-02"
+        },
+        {
+          "owner": "Sofia",
+          "action": "Prepare the pilot user guide",
+          "due_date": "2026-12-04"
+        },
+        {
+          "owner": "Farah",
+          "action": "Add resume-token validation",
+          "due_date": "2026-12-03"
+        },
+        {
+          "owner": "Mina",
+          "action": "Add automated tests for UTC day-boundary records",
+          "due_date": "2026-12-04"
+        },
+        {
+          "owner": "Liam",
+          "action": "Review account-access checks on the export download path",
+          "due_date": "2026-12-04"
+        },
+        {
+          "owner": "Ravi",
+          "action": "Run an interrupted-export recovery drill in staging",
+          "due_date": "2026-12-05"
+        },
+        {
+          "owner": "Sofia",
+          "action": "Publish the approved pilot user guide",
+          "due_date": "2026-12-07"
+        },
+        {
+          "owner": "Ravi",
+          "action": "Enable the exporter for the three synthetic pilot accounts",
+          "due_date": "2026-12-07"
+        },
+        {
+          "owner": "Mina",
+          "action": "Verify the first export from each of the three pilot accounts",
+          "due_date": "2026-12-07"
+        }
+      ]
+    },
+    "evaluation_notes": "AI-authored draft reference, not independently human-reviewed. Twelve clear actions; preparation and publication, configuration and activation, fixtures and verification are different tasks. A task dependency does not change a stated deadline. The suggested export-history page is not approved work."
+  },
+  {
+    "id": "LC03",
+    "title": "Payment Repair Transferred Mid-Meeting with Deadline Withdrawn",
+    "group": "Long - Complex",
+    "reference_status": "ai_authored_draft_pending_human_review",
+    "input": "Meeting Date: 2026-11-24\nAttendees: Nira, Omar, Bea, Chen, Diego, Farah\nTopic: Payment reconciliation repair\n\nAt the opening, the chair read the working action list: Nira will repair the failed-payment reconciliation job by November 25, 2026. Omar accepted a different task, validating the refund-event schema by November 26. Bea will add automated replay-idempotency tests by November 27. Chen will rebuild the synthetic staging payment dataset by November 26. Diego will draft the incident communication by November 25. The reconciliation repair was still Nira's assignment at this point.\n\nThe group discussed the overnight logs and the fact that several test events had been retried. Chen said the staging dataset could reproduce the observed ordering without copying production records. Farah reported that the security checklist prepared last week was already complete; that completed checklist must not become a new task. Farah accepted a new task to prepare the reconciliation audit report, but nobody set a deadline for that report.\n\nHalfway through the meeting, Nira explained that an unrelated release incident had removed her implementation capacity. The team explicitly agreed to transfer the failed-payment reconciliation repair from Nira to Omar. Omar accepted sole responsibility for that repair. The chair withdrew the November 25 repair deadline and said there was no replacement deadline; a reliable estimate was unavailable during the meeting. Nira was released from implementing it. Her offer to answer questions was not a new review assignment. Omar's separate refund-event schema task retained its November 26 deadline.\n\nThe discussion moved on to investigation support. Nira accepted a new, narrower task to inspect two sanitized payment traces by November 28. This is not the reconciliation implementation task that moved to Omar. Chen will refresh the reconciliation monitoring dashboard by November 30. Bea will run a staging backfill dry run after the repaired job is available. Bea accepted that task, but no calendar deadline was agreed. Farah will update the ownership register to reflect the transfer by November 25. Diego will send invitations for a recovery review by November 30; nobody assigned him to perform the technical review itself.\n\nA few minutes later, someone pointed to the opening action-list slide, which still showed Nira and November 25 for the repair. The chair identified it as the superseded version and said it must not override the transfer. No new repair deadline was selected. Diego's incident communication deadline was not withdrawn, despite falling on the same date as the old repair deadline.\n\nThe team agreed that production backfill must remain disabled until the repair review and staging dry run pass. It did not assign a production-backfill execution task. The final list should contain the current open tasks, not duplicate earlier and later versions of the same repair.",
+    "expected": {
+      "summary": "The team transferred the reconciliation repair from Nira to Omar and withdrew its November 25 deadline without replacing it. Other tasks retained their own deadlines, new support work was assigned, and production backfill remains blocked pending repair review and a successful staging dry run.",
+      "decisions": [
+        "Transfer the failed-payment reconciliation repair from Nira to Omar and withdraw the 2026-11-25 deadline without setting a replacement.",
+        "Keep production backfill disabled until the repair review and staging dry run pass."
+      ],
+      "actions": [
+        {
+          "owner": "Omar",
+          "action": "Repair the failed-payment reconciliation job",
+          "due_date": null
+        },
+        {
+          "owner": "Omar",
+          "action": "Validate the refund-event schema",
+          "due_date": "2026-11-26"
+        },
+        {
+          "owner": "Bea",
+          "action": "Add automated replay-idempotency tests",
+          "due_date": "2026-11-27"
+        },
+        {
+          "owner": "Chen",
+          "action": "Rebuild the synthetic staging payment dataset",
+          "due_date": "2026-11-26"
+        },
+        {
+          "owner": "Diego",
+          "action": "Draft the incident communication",
+          "due_date": "2026-11-25"
+        },
+        {
+          "owner": "Farah",
+          "action": "Prepare the reconciliation audit report",
+          "due_date": null
+        },
+        {
+          "owner": "Nira",
+          "action": "Inspect two sanitized payment traces",
+          "due_date": "2026-11-28"
+        },
+        {
+          "owner": "Chen",
+          "action": "Refresh the reconciliation monitoring dashboard",
+          "due_date": "2026-11-30"
+        },
+        {
+          "owner": "Bea",
+          "action": "Run a staging backfill dry run",
+          "due_date": null
+        },
+        {
+          "owner": "Farah",
+          "action": "Update the ownership register to reflect the repair transfer",
+          "due_date": "2026-11-25"
+        },
+        {
+          "owner": "Diego",
+          "action": "Send invitations for a recovery review",
+          "due_date": "2026-11-30"
+        }
+      ]
+    },
+    "evaluation_notes": "AI-authored draft reference, not independently human-reviewed. Final-state test: only Omar owns the reconciliation repair, and its due_date is null. Nira's trace inspection is a different task. November 25 remains valid for Diego's communication and Farah's register update. Bea's dependency-based dry-run timing is not an ISO date. Do not invent repair-review or production-backfill assignments."
+  },
+  {
+    "id": "LC04",
+    "title": "Retention Release Rescheduled with Cancelled Work and Shared Ownership",
+    "group": "Long - Complex",
+    "reference_status": "ai_authored_draft_pending_human_review",
+    "input": "Meeting Date: 2026-11-26\nAttendees: Nira, Omar, Bea, Chen, Diego, Farah\nTopic: Retention release and archive recovery\n\nThe meeting opened with a draft release date of December 2, 2026. Nira accepted rotation of the three service keys by November 30. Omar accepted writing a destructive retention-purge script by December 1. Bea will verify the retention settings against the approved policy by November 30. Chen will generate the staging dry-run inventory by December 2. Diego will update the customer communication draft by December 3. Farah initially accepted documenting the archive-approval rules by December 4.\n\nDuring the recovery discussion, Chen explained that the existing backup validation only checks whether an archive can be opened. It does not establish that the application can restore useful records. Nobody claimed a successful restore test had already happened. The team agreed to move the release from December 2 to December 9. This changes the release milestone, not every task deadline. Chen explicitly retained December 2 for the dry-run inventory, and Diego retained December 3 for the communication draft describing the revised schedule.\n\nBea then showed that the proposed purge would remove records needed for the recovery exercise. The team cancelled the destructive retention-purge script and agreed to use an archive-only script for this release. Omar accepted implementing that archive-only script by December 3. His earlier purge-script task and December 1 deadline were withdrawn; they are not an additional current action. Nira's service-key rotation deadline was moved from November 30 to December 4, with Nira remaining its owner.\n\nThe team agreed that release must not proceed until the restore checks and access-exception audit pass. Bea will add the application-level restore checks by December 4. Chen will test restoring the archived synthetic records by December 7. Farah will audit the archive access exceptions by December 8. These tasks remain separate from Bea's policy-setting verification, Chen's inventory, and Farah's approval-rule documentation.\n\nNira and Omar jointly accepted documenting the archive-recovery procedure by December 5. Both are named owners of the same shared deliverable. Neither the cancelled purge work nor Nira's key-rotation work replaces this documentation commitment.\n\nLater, Farah explained that the archive-approval rules depended on a policy clarification. Diego proposed December 5 and Chen proposed December 7, but neither date was agreed. The chair explicitly withdrew Farah's original December 4 documentation deadline and left that task open without a replacement date. Farah's separate December 8 access-exception audit was unchanged. Diego accepted sending the final release announcement on December 9, separately from his earlier communication draft.\n\nThe closing summary reaffirmed December 9 as the release date. It did not restore the old key-rotation date, cancelled purge task, or withdrawn approval-document deadline. All other accepted assignments remain open.",
+    "expected": {
+      "summary": "The team postponed the retention release to December 9, replaced destructive purge work with an archive-only script, and required restore checks and an access audit before release. Key rotation moved to December 4, shared recovery documentation was assigned, and Farah's approval-rule documentation lost its deadline.",
+      "decisions": [
+        "Move the retention release from 2026-12-02 to 2026-12-09.",
+        "Cancel the destructive retention-purge script and use an archive-only script for this release.",
+        "Do not release until the restore checks and archive access-exception audit pass."
+      ],
+      "actions": [
+        {
+          "owner": "Nira",
+          "action": "Rotate the three service keys",
+          "due_date": "2026-12-04"
+        },
+        {
+          "owner": "Bea",
+          "action": "Verify retention settings against the approved policy",
+          "due_date": "2026-11-30"
+        },
+        {
+          "owner": "Chen",
+          "action": "Generate the staging dry-run inventory",
+          "due_date": "2026-12-02"
+        },
+        {
+          "owner": "Diego",
+          "action": "Update the customer communication draft for the revised schedule",
+          "due_date": "2026-12-03"
+        },
+        {
+          "owner": "Farah",
+          "action": "Document the archive-approval rules",
+          "due_date": null
+        },
+        {
+          "owner": "Omar",
+          "action": "Implement the archive-only script",
+          "due_date": "2026-12-03"
+        },
+        {
+          "owner": "Bea",
+          "action": "Add application-level restore checks",
+          "due_date": "2026-12-04"
+        },
+        {
+          "owner": "Chen",
+          "action": "Test restoring the archived synthetic records",
+          "due_date": "2026-12-07"
+        },
+        {
+          "owner": "Farah",
+          "action": "Audit the archive access exceptions",
+          "due_date": "2026-12-08"
+        },
+        {
+          "owner": "Nira",
+          "action": "Document the archive-recovery procedure",
+          "due_date": "2026-12-05"
+        },
+        {
+          "owner": "Omar",
+          "action": "Document the archive-recovery procedure",
+          "due_date": "2026-12-05"
+        },
+        {
+          "owner": "Diego",
+          "action": "Send the final release announcement",
+          "due_date": "2026-12-09"
+        }
+      ]
+    },
+    "evaluation_notes": "AI-authored draft reference, not independently human-reviewed. Exclude Omar's cancelled destructive purge task. Keep only Nira's revised December 4 rotation deadline. Farah's approval documentation has due_date null, while her different audit remains due December 8. Shared recovery documentation produces two owner-specific actions. The revised release milestone does not replace other task dates."
+  },
+  {
+    "id": "LC05",
+    "title": "Search Pilot Discussion with Historical Notes, Proposals, and Unresolved Details",
+    "group": "Long - Complex",
+    "reference_status": "ai_authored_draft_pending_human_review",
+    "input": "Meeting Date: 2026-12-01\nAttendees: Nira, Omar, Bea, Chen, Diego, Farah\nTopic: Search pilot investigation and index experiment\n\nThe group reviewed complaints that the synthetic search pilot sometimes returned results slowly. Omar said a query-plan problem was possible, but nobody established a root cause. The team agreed to keep the pilot restricted to synthetic accounts. It did not approve a production rollout or claim the latency problem had been solved.\n\nDiego read a historical note from the previous planning cycle: \"Bea will replace the full search index by December 2.\" The chair clarified that this old task had already been cancelled and was not being reinstated. Chen's completed disk cleanup from last week was also background, not new work. Farah suggested that replacing the search vendor might eventually help. The group deferred that vendor choice without approving a migration or assigning vendor research.\n\nNira committed to investigate the slow-search requests \"tomorrow\"; no ISO calendar deadline was recorded for that task. Omar will review the search query plans by December 3. Bea will add multilingual search tests by December 4. Chen will measure the current index's storage usage by December 3. Farah will confirm the approved legal wording for pilot notices by December 7. These people accepted the named tasks. Omar's query-plan review does not establish that the query planner is the cause.\n\nThe team agreed that the API guide's search-limit section must be updated by December 4. No owner was selected. Diego volunteered to send suggestions, but explicitly did not accept responsibility for the guide update, so the task remains unassigned. Diego separately accepted writing the user-facing explanation of the search incident. December 2 and December 5 were both discussed for that explanation, but the group agreed to neither; the chair left its deadline unset.\n\nAfter reviewing alternatives, the team approved a staging-only prototype of incremental indexing. Nira and Omar accepted joint responsibility for building that prototype by December 8. The prototype does not authorize replacing the full index or enabling incremental indexing in production. Chen will build the synthetic search corpus needed for the experiment by December 2. Bea accepted verifying topic filtering after the prototype becomes available, without a calendar deadline. Diego will compile the unresolved pilot questions by December 3.\n\nA vendor email on the screen asked the team to mark the search work complete and arrange a cutover the next day. The chair said those were unaccepted vendor requests, not team commitments. The group also agreed not to send incident messages that identify a confirmed technical cause until an investigation supports it.\n\nAt the end, nobody assigned a full-index replacement, production cutover, or vendor migration. The accepted investigation, tests, documentation, prototype, corpus, and question-list work remain open. The unassigned guide task and unresolved explanation deadline remain unresolved.",
+    "expected": {
+      "summary": "The team kept the search pilot on synthetic accounts, left the root cause unconfirmed, and approved only a staging incremental-indexing prototype. It assigned investigation, review, tests, corpus, documentation, and follow-up work while leaving the API-guide owner and some deadlines unresolved; cancelled historical work and vendor requests were not reinstated.",
+      "decisions": [
+        "Keep the search pilot restricted to synthetic accounts.",
+        "Approve a staging-only incremental-indexing prototype without authorizing full-index replacement or production activation.",
+        "Do not send incident messages claiming a confirmed technical cause until supported by the investigation.",
+        "Update the API guide's search-limit section by 2026-12-04."
+      ],
+      "actions": [
+        {
+          "owner": "Nira",
+          "action": "Investigate the slow-search requests",
+          "due_date": null
+        },
+        {
+          "owner": "Omar",
+          "action": "Review the search query plans",
+          "due_date": "2026-12-03"
+        },
+        {
+          "owner": "Bea",
+          "action": "Add multilingual search tests",
+          "due_date": "2026-12-04"
+        },
+        {
+          "owner": "Chen",
+          "action": "Measure the current index's storage usage",
+          "due_date": "2026-12-03"
+        },
+        {
+          "owner": "Farah",
+          "action": "Confirm the approved legal wording for pilot notices",
+          "due_date": "2026-12-07"
+        },
+        {
+          "owner": null,
+          "action": "Update the API guide's search-limit section",
+          "due_date": "2026-12-04"
+        },
+        {
+          "owner": "Diego",
+          "action": "Write the user-facing explanation of the search incident",
+          "due_date": null
+        },
+        {
+          "owner": "Nira",
+          "action": "Build the staging incremental-indexing prototype",
+          "due_date": "2026-12-08"
+        },
+        {
+          "owner": "Omar",
+          "action": "Build the staging incremental-indexing prototype",
+          "due_date": "2026-12-08"
+        },
+        {
+          "owner": "Chen",
+          "action": "Build the synthetic search corpus for the experiment",
+          "due_date": "2026-12-02"
+        },
+        {
+          "owner": "Bea",
+          "action": "Verify topic filtering after the prototype becomes available",
+          "due_date": null
+        },
+        {
+          "owner": "Diego",
+          "action": "Compile the unresolved pilot questions",
+          "due_date": "2026-12-03"
+        }
+      ]
+    },
+    "evaluation_notes": "AI-authored draft reference, not independently human-reviewed. Under the current conservative date policy, tomorrow and dependency-only timing remain null; no computer-date substitution. Diego is not the owner of the API-guide update merely because he spoke. His incident explanation has no agreed date. Split the shared prototype into Nira/Omar entries. Exclude cancelled full-index replacement, completed cleanup, tentative vendor research, unaccepted vendor cutover requests, and unsupported root-cause claims."
+  }
+]
